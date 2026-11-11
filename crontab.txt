@@ -1,0 +1,24 @@
+# Crontab schedule for Database Automation Suite
+# Automated ETL, Nightly Backups, and Weekly Management Reporting
+#
+# Replace /path/to/python_database_automation with your actual deployment path
+# Example: PROJECT_DIR="/opt/python_database_automation" or "$HOME/python_database_automation"
+#
+# Field guide:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12)
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)
+# |  |  |  |  |
+# *  *  *  *  * command to execute
+
+# 1. Daily at 01:00 AM: Ingest & validate student records from CSV
+0 1 * * * cd /path/to/python_database_automation && python3 import_students.py data/students.csv >> logs/cron.log 2>&1
+
+# 2. Daily at 02:00 AM: Back up database, compress (.sql.gz) and rotate older archives
+0 2 * * * cd /path/to/python_database_automation && python3 backup_db.py >> logs/cron.log 2>&1
+
+# 3. Weekly on Monday at 06:00 AM: Generate enrolment analytics report ahead of management meetings
+0 6 * * 1 cd /path/to/python_database_automation && python3 generate_report.py >> logs/cron.log 2>&1
+

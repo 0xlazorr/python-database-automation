@@ -1,0 +1,13 @@
+# Institutional Database Automation Suite
+# Python >= 3.10
+#
+# Zero third-party dependencies required.
+# Uses Python Standard Library exclusively:
+# - sqlite3 (Database engine & iterdump)
+# - csv (Dataset parsing & report exports)
+# - gzip (Archive compression)
+# - logging (Structured event tracking)
+# - pathlib (Filesystem path resolution)
+# - unittest (Automated test suites)
+# - argparse (CLI interfaces)
+# - re (Regex validation)

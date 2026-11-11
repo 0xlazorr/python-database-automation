@@ -1,0 +1,33 @@
+# Environment and Secrets
+.env
+db.env
+*.env
+
+# SQLite Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups & Archives
+backups/*
+!backups/.gitkeep
+*.gz
+*.dump
+*.tar
+
+# Logs
+logs/*
+!logs/.gitkeep
+*.log
+
+# Generated Reports
+reports/*
+!reports/.gitkeep
+
+# Python cache & virtualenvs
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
